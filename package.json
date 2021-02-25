@@ -1,0 +1,27 @@
+{
+  "name": "new_api",
+  "version": "1.0.0",
+  "description": "news api",
+  "main": "functions/getNews.js",
+  "scripts": {
+    "build": "netlify-lambda build functions",
+    "start": "nodemon getNews-local.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [],
+  "author": "kmunton",
+  "license": "",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "netlify-lambda": "^2.0.3",
+    "newsapi": "^2.4.1",
+    "nodemon": "^2.0.7",
+    "serverless-http": "^2.7.0"
+  }
+}
