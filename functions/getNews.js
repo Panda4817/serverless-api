@@ -23,15 +23,20 @@ router.get("/", (req, res) => {
 
 router.post('/', async (req, res) => {
     const { code } = req.query;
-    const response = await axios.get(`https://newsapi.org/v2/top-headlines?country=${code.toLowerCase()}&apiKey=${api_key}`);
-    const headlines = response.data.articles.map((item) => {
-        return {
-            'title': item.title,
-            'url': item.url
-        }
-    });
-    res.status(200).json(headlines);
-    
+    try {
+        const response = await axios.get(`https://newsapi.org/v2/top-headlines?country=${code.toLowerCase()}&apiKey=${api_key}`);
+        const headlines = response.data.articles.map((item) => {
+            return {
+                'title': item.title,
+                'url': item.url
+            }
+        });
+        res.status(200).json(headlines);
+    } catch (err) {
+        res.status(400).json({ 'error': err.message });
+    }
+
+
 })
 
 module.exports = app

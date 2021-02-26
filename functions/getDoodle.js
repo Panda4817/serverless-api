@@ -22,9 +22,13 @@ router.get("/", (req, res) => {
 
 router.post('/', async (req, res) => {
     const { year, month } = req.query;
-    const response = await axios.get(`https://www.google.com/doodles/json/${year}/${month}`)
-    console.log(response.data);
-    res.status(200).json(response.data[0]);
+    try {
+        const response = await axios.get(`https://www.google.com/doodles/json/${year}/${month}`)
+        res.status(200).json(response.data[0]);
+    } catch (err) {
+        res.status(400).json({ 'error': err.message });
+    }
+
 })
 
 module.exports = app

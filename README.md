@@ -4,3 +4,5 @@
 I needed to request data from a third party news api, which involves an API key. After googling different options, the serverless API system seems to be the best and also gave me an opportunity to learn about something new.
 
 I also created a xkcd API that has CORS enabled as the original xkcd API does not have CORS enabled.
+
+I also added an API to fetch the latest Google doodle for the Google doodle API.
