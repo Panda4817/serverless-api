@@ -22,8 +22,8 @@ router.get("/", (req, res) => {
 })
 
 router.post('/', async (req, res) => {
-    const response = await axios.get(`https://newsapi.org/v2/top-headlines?language=en&apiKey=${api_key}`);
-    console.log(response);
+    const { code } = req.query;
+    const response = await axios.get(`https://newsapi.org/v2/top-headlines?country=${code.toLowerCase()}&apiKey=${api_key}`);
     const headlines = response.data.articles.map((item) => {
         return {
             'title': item.title,
