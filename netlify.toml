@@ -1,3 +1,13 @@
 [build]
   command = "npm install && npm run build"
   functions = "functions-build"
+
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/getNews"
+  status = 200
+
+[[headers]]
+    for = "/*"
+        [headers.values]
+            Access-Control-Allow-Origin = "*"
