@@ -1,15 +1,15 @@
 {
-  "name": "new_api",
+  "name": "serverless_api",
   "version": "1.0.0",
-  "description": "news api",
-  "main": "functions/getNews.js",
+  "description": "serverless api functions to get xkcd comic and news",
+  "main": "",
   "scripts": {
     "build": "netlify-lambda build functions",
     "start": "netlify-lambda build functions && netlify dev"
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/Panda4817/serverless-api"
   },
   "keywords": [],
   "author": "kmunton",
@@ -22,7 +22,6 @@
     "encoding": "^0.1.13",
     "express": "^4.17.1",
     "netlify-lambda": "^2.0.3",
-    "nodemon": "^2.0.7",
     "serverless-http": "^2.7.0"
   }
 }
