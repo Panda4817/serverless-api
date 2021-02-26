@@ -22,20 +22,16 @@ router.get("/", (req, res) => {
 })
 
 router.post('/', async (req, res) => {
-    try {
-        const response = await newsapi.v2.topHeadlines({language: 'en'});
-        console.log(response);
-        const headlines = response.articles.map((item) => {
-            return {
-                'title': item.title,
-                'url': item.url
-            }
-        })
-        return res.status(200).json(headlines);
-    } catch (err) {
-        console.log(err)
-        res.status(400).send({ error: "Bad request" })
-    }
+    const response = await newsapi.v2.topHeadlines({language: 'en'});
+    console.log(response);
+    const headlines = response.articles.map((item) => {
+        return {
+            'title': item.title,
+            'url': item.url
+        }
+    })
+    res.status(200).json(headlines);
+    
 })
 
 module.exports = app
