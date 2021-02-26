@@ -21,8 +21,8 @@ router.get("/", (req, res) => {
 })
 
 router.post('/', async (req, res) => {
-    const num = req.params['num']
-    if (!num){
+    const { num } = req.query;
+    if (!num || num == "" || num == " " || num == "latest") {
         const response = await axios.get(`https://xkcd.com/info.0.json`);
         console.log(response.data);
         res.status(200).json(response.data);
