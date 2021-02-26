@@ -5,7 +5,7 @@
   "main": "functions/getNews.js",
   "scripts": {
     "build": "netlify-lambda build functions",
-    "start": "nodemon getNews-local.js"
+    "start": "netlify-lambda build functions && netlify dev"
   },
   "repository": {
     "type": "git",
