@@ -3,11 +3,11 @@ require('dotenv').config();
 const express = require("express")
 const serverless = require("serverless-http")
 const cors = require("cors");
-const NewsAPI = require('newsapi');
 const app = express()
 const bodyParser = require("body-parser")
 const router = express.Router()
-const newsapi = new NewsAPI(process.env.API);
+const axios = require('axios');
+const api_key = process.env.API;
 
 router.use(cors())
 
@@ -22,9 +22,9 @@ router.get("/", (req, res) => {
 })
 
 router.post('/', async (req, res) => {
-    const response = await newsapi.v2.topHeadlines({language: 'en'});
-    const data = await response.json();
-    const headlines = data.articles.map((item) => {
+    const response = await axios.get(`https://newsapi.org/v2/top-headlines?language=en&apiKey=${api_key}`);
+    console.log(response);
+    const headlines = response.data.articles.map((item) => {
         return {
             'title': item.title,
             'url': item.url
