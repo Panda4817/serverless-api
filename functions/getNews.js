@@ -29,7 +29,15 @@ router.post('/', async (req, res) => {
                 'url': item.url
             }
         })
-        res.status(200).send({ data: headlines })
+        res
+        .status(200)
+        .header({
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Credentials': true,
+            'Access-Control-Allow-Headers': 'Content-Type',
+            'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE'
+        })
+        .send({ data: headlines })
     } catch (err) {
         console.log(err)
         res.status(400).send({ error: "Bad request" })
