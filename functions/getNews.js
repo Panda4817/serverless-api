@@ -13,7 +13,7 @@ router.use(cors())
 
 app.use(bodyParser.json())
 app.use("/.netlify/functions/getNews", router) // path must route to lambda
-app.use("/*", router)
+app.use("/", router)
 
 router.get("/", (req, res) => {
     res.writeHead(200, { 'Content-Type': 'text/html' })
@@ -23,13 +23,13 @@ router.get("/", (req, res) => {
 
 router.post('/', async (req, res) => {
     const response = await newsapi.v2.topHeadlines({language: 'en'});
-    console.log(response);
-    const headlines = response.articles.map((item) => {
+    const data = await response.json();
+    const headlines = data.articles.map((item) => {
         return {
             'title': item.title,
             'url': item.url
         }
-    })
+    });
     res.status(200).json(headlines);
     
 })
