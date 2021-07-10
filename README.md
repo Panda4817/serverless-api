@@ -7,4 +7,6 @@ I added a xkcd API that has CORS enabled as the original xkcd API does not have 
 
 I also added an API to fetch the latest Google doodle from the Google doodle API.
 
+I also added an API to fetch a random dad joke from the icanhazdadjoke.com.
+
 All of these APIs are for a chrome extension that replaces the new tab with an informative xkcd themed one instead. 

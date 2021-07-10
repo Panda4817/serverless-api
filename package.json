@@ -1,27 +1,26 @@
 {
-  "name": "serverless_api",
-  "version": "1.0.0",
-  "description": "serverless api functions to get xkcd comic and news",
-  "main": "",
-  "scripts": {
-    "build": "netlify-lambda build functions",
-    "start": "netlify-lambda build functions && netlify dev"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Panda4817/serverless-api"
-  },
-  "keywords": [],
-  "author": "kmunton",
-  "license": "",
-  "dependencies": {
-    "axios": "^0.21.1",
-    "body-parser": "^1.19.0",
-    "cors": "^2.8.5",
-    "dotenv": "^8.2.0",
-    "encoding": "^0.1.13",
-    "express": "^4.17.1",
-    "netlify-lambda": "^2.0.3",
-    "serverless-http": "^2.7.0"
-  }
+	"name": "serverless_api",
+	"version": "1.0.0",
+	"description": "serverless api functions to get xkcd comic, news, google doodles and jokes.",
+	"main": "",
+	"scripts": {
+		"build": "netlify-lambda build functions",
+		"start": "netlify-lambda build functions && netlify dev"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Panda4817/serverless-api"
+	},
+	"keywords": [],
+	"author": "kmunton",
+	"license": "",
+	"dependencies": {
+		"axios": "^0.21.1",
+		"cors": "^2.8.5",
+		"dotenv": "^8.2.0",
+		"encoding": "^0.1.13",
+		"express": "^4.17.1",
+		"netlify-lambda": "^2.0.3",
+		"serverless-http": "^2.7.0"
+	}
 }
