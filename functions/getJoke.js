@@ -25,12 +25,18 @@ router.post("/", async (req, res) => {
 			{
 				headers: {
 					Accept: "application/json",
+					"User-Agent":
+						"My Serverless API for xkcd chrome extension (https://github.com/Panda4817/serverless-api)",
 				},
 			}
 		);
-		res.status(200).json(response.data["joke"]);
+		res
+			.status(response.data["status"])
+			.json(response.data["joke"]);
 	} catch (err) {
-		res.status(400).json({ error: err.message });
+		res
+			.status(err.response.status)
+			.json({ error: err.response.statusText });
 	}
 });
 
