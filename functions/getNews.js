@@ -82,34 +82,30 @@ router.post("/", async (req, res) => {
 			const response = await axios.get(
 				`https://newsapi.org/v2/top-headlines?country=${code.toLowerCase()}&apiKey=${api_key}`
 			);
-			const headlines = response.data.articles.map(
-				(item) => {
-					return {
-						title: item.title,
-						url: item.url,
-					};
-				}
-			);
-			res.status(200).json(headlines);
+			const headlines = response.data.articles.map((item) => {
+				return {
+					title: item.title,
+					url: item.url,
+				};
+			});
+			res.status(response.status).json(headlines);
 		} catch (err) {
-			res.status(400).json({ error: err.message });
+			res.status(err.response.status).json({ error: err.response.statusText });
 		}
 	} else {
 		try {
 			const response = await axios.get(
 				`https://newsapi.org/v2/top-headlines?language=en&apiKey=${api_key}`
 			);
-			const headlines = response.data.articles.map(
-				(item) => {
-					return {
-						title: item.title,
-						url: item.url,
-					};
-				}
-			);
-			res.status(200).json(headlines);
+			const headlines = response.data.articles.map((item) => {
+				return {
+					title: item.title,
+					url: item.url,
+				};
+			});
+			res.status(response.status).json(headlines);
 		} catch (err) {
-			res.status(400).json({ error: err.message });
+			res.status(err.response.status).json({ error: err.response.statusText });
 		}
 	}
 });
